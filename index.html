@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="images/up-floating-house.jpeg">
+					<h1>Floating House</h1>
+					<h3>Distribute your iOS Apps Over the Air</h3>
+					<p>
+						Linus Liu
+					</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>Why Floating House?</h2>
+				</section>
+
+				<section data-background="#0277BD" id="build">
+					<h2>Building an iOS app yourself to devices isn't that easy</h2>
+					<p class="fragment">
+						There's a lot of new and confusing terminology 
+					</p>
+					<p class="fragment">Code Signing</p>
+					<p class="fragment">Provisioning Profile</p>
+					<p class="fragment">Certificates, Public & Private keys, Loing or System keychains etc. ...</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>You still need to be careful ...</h2>
+					<p class="fragment">You're building:</p>
+					<p class="fragment">correct branch of code</p>
+					<p class="fragment">correct target: UAT, QA, Staging or Live?</p>
+					<p class="fragment">correct version No.</p>
+					<p class="fragment">debug or release version?</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>Installing an iPA to your iOS devices isn't that easy neither</h2>
+					<p>囧。。。</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>Not like Android</h2>
+					<p>
+						You can NOT copy the .ipa file exported from Xcode to users and tell them to install the app.
+					</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>A valid ipa downloading link</h2>
+					<p>
+						<pre><code><a href="itms-services://?action=download-manifest&url=
+https://your_houst/path/to/your/plist">Install iOS app</a></code></pre>
+					</p>
+					<p class="fragment">a Web server hosting your ipa files</p>
+					<p class="fragment">HTTPS support</p>
+					<p class="fragment">SSL certificates needed</p>
+					<p class="fragment">Correct Plist file generated for each ipa file</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>We need a tool for internal testers</h2>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>TestFlight</h2>
+					<p class="fragment">TestFlight is great!! But ... </p>
+					<p class="fragment">TestFlight is acquired by Apple</p>
+					<p class="fragment">For Beta testers(up to 1000), builds will need to be reviewed and approved by Apple before testers will have access to them, only iOS 8 & above supported</p>
+					<p class="fragment">For Internal testers, up to 25 members who have been assigned the Technical or Admin role in iTunes Connect</p>
+					<p class="fragment">Internal testers are still limited</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>So ... </h2>
+					<p class="fragment">We may need a tool of our own to distribute iOS apps for internal testers</p>
+					<p class="fragment">With Floating House:</p>
+					<p class="fragment">You're not required to have an Apple ID</p>
+					<p class="fragment">You don't have to be invited and enabled for iTunes Connect</p>
+					<p class="fragment">No limit on the number of internal testers</p>
+					<p class="fragment">Faster uploading & downloading speed than TestFlight</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>Demo Time </h2>
+					<p>
+						<a href="http://10.128.43.56" target="_blank" style="color:white">http://10.128.43.56</a>
+					</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>Integrating Jenkins</h2>
+					<p>
+						<a href="http://10.128.43.56:8080" target="_blank" style="color:white">http://10.128.43.56:8080</a>
+					</p>
+				</section>
+
+				<section data-background="#0277BD">
+					<h2>Next ...</h2>
+				</section>
+
+				<section data-background="#673AB7">
+					<h1>EF APIs for Testing</h1>
+					<p>
+						Linus Liu
+					</p>
+				</section>
+
+				<section data-background="#673AB7">
+					<h2>Speaking from the School QA tool ...</h2>
+					<p class="fragment">the'QA Tool' is Excellent! Without the QA tool it's very difficult to test complex scenarios</p>
+				</section>
+
+				<section data-background="#673AB7">
+					<h2>I met some problems</h2>
+					<p class="fragment">QA tool cannot be used directly from automated test scripts</p>
+					<p class="fragment">I created a wrapper of the QA tool in Ruby</p>
+					<p class="fragment">Repeated the code in different projects</p>
+					<p class="fragment">Some functions I need for automated scripts are not provided by the QA tool</p>
+				</section>
+
+				<section data-background="#673AB7">
+					<h2>Trying to provide a solutioin ... </h2>
+					<p class="fragment">A set of APIs for test, more suitable for testing purpose</p>
+					<p class="fragment">Easy to be called from automated scripts</p>
+					<p class="fragment">Simplify the communication between front-end UI automation and backend databases </p>
+				</section>
+
+				<section data-background="#673AB7">
+					<h2>Demo Time</h2>
+					<p>
+						<a href="http://10.128.43.56:9292" target="_blank" style="color:white">http://10.128.43.56:9292</a>
+					</p>
+				</section>
+
+				<section data-background="images/thank-you.jpg">
+					<h1>Thank you!</h1>
+					<h2>Q & A</h2>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
